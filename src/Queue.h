@@ -1,14 +1,11 @@
 #ifndef __QUEUE_H__
 #define __QUEUE_H__
-#include <vector>
+#include <list>
+using namespace std;
 
 class Queue {
  private:
-  int* theQueue;
-  int front;
-  int back;
-  int theSize;
-  int capacity;
+  list<int> theQueue;
 
  public:
   Queue();

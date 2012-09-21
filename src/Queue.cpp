@@ -3,32 +3,28 @@
 #include <vector>
 
 Queue::Queue() {
-  theSize = 0;
-  int initSize = 10;
-  theQueue = new int[initSize];
-  capacity = initSize;
+  //um, need there be something here?
 }
 
 Queue::~Queue() {
-  delete[] theQueue;
+  //delete theQueue;
 }
 
 void Queue::enqueue(int value) {
-  theQueue[theSize] = value;
-  theSize++;
+  theQueue.push_back(value);
 }
 
 int Queue::dequeue() {
-  int temp = theQueue[theSize-1];
-  theSize--;
+  int temp = theQueue.front();
+  theQueue.pop_front();
   return temp;
 }
 
 int Queue::isEmpty() {
-  if (theSize>0) return 0;
+  if (theQueue.size()>0) return 0;
   else return 1;
 }
 
 int Queue::size() {
-  return theSize;
+  return theQueue.size();
 }

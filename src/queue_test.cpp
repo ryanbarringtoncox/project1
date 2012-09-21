@@ -24,7 +24,11 @@ int main() {
     cout << q->dequeue() << endl;
   }
 
+  cout << "Is empty: " <<q->isEmpty() << endl;
+
   delete q;
+  //next line is 'segmentation fault, proves it's deleted
+  //cout << "Size is " << q->size() << endl;
 
   return 0;
 }
