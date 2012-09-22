@@ -12,12 +12,20 @@ Queue* q = new Queue();
   cout << "Size is " << q->size() << endl;
   cout << "Is empty: " << q->isEmpty() << endl;
 
-  for (int i=0; i<2; i++) {
+  for (int i=0; i<10; i++) {
     //cout << i << endl;
     q->enqueue(i);
   }
 
-  cout << "Dequeue: " << q->dequeue() << endl;
+	cout << "Size is " << q->size() << endl;
+	cout << "Is empty: " << q->isEmpty() << endl;
+	
+	
+	while(q->size()!=0) {
+		cout << "Dequeue: " << q->dequeue() << endl;
+	}
+
+	//cout << "Dequeue: " << q->dequeue() << endl;
 
   //cout << "Size is " << q->size() << endl;
   //cout << "Is empty: " <<q->isEmpty() << endl;

@@ -1,5 +1,6 @@
 #include "Queue.h"
 #include <iostream>
+#include <assert.h>
 
 Queue::Queue() {
   theSize = 0;
@@ -8,16 +9,29 @@ Queue::Queue() {
 void Queue::enqueue(int value) {
   if (theSize==0) {
     Node* n = new Node(value);
+	  //n->setNext(NULL);
     front = n;
+	theSize++;
+  }
+  else if (theSize==1) {
+	  back = new Node(value);
+	  front->setNext(*back);  
+	  theSize++;
   }
   else {
-    //Node* next = new Node(value);
-    back = new Node(value);
+	  Node* n = new Node(value);
+	  back->setNext(*n);
+	  back=n;
+	  theSize++;
   }
 }
 
 int Queue::dequeue() {
-  return front->getValue();
+	assert(theSize>0);
+	Node* temp = front;
+	front=front->getNext();
+	theSize--;
+	return temp->getValue();
 }
 
 int Queue::size() {
