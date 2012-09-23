@@ -18,23 +18,26 @@ int main() {
 	  cout << "Enqueueing " << i << endl;
 	  q->enqueue(i);
 	  cout << "Size is: " << q->size() << endl;
+	  cout << "Capacity is: " << q->getCapacity() << endl;
   }
 	cout << "dequeue: " << q->dequeue() << endl;
 	cout << "Size is: " << q->size() << endl;
 	cout << "dequeue: " << q->dequeue() << endl;
 	cout << "Size is: " << q->size() << endl;
 	
-	for (int i=0; i<3; i++) {
+	for (int i=0; i<8; i++) {
 		cout << "Enqueueing " << i << endl;
 		q->enqueue(i);
 		cout << "Size is: " << q->size() << endl;
+		cout << "Capacity is: " << q->getCapacity() << endl;
 	}	
 	
-	cout << "Size is: " << q->size() << endl;
+	//cout << "Size is: " << q->size() << endl;
 	
 	while (!q->isEmpty()) {
 		cout << "dequeue: " << q->dequeue() << endl;
 		cout << "Size is: " << q->size() << endl;
+		cout << "Capacity is: " << q->getCapacity() << endl;
 		
 	}
 	cout << "Capacity is: " << q->getCapacity() << endl;

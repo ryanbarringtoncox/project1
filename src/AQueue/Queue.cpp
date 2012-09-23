@@ -30,27 +30,29 @@ void Queue::enqueue(int value) {
 		theSize++;
 	}
 	else {
-		if (theSize==capacity) {
+		
+		if (theSize < capacity) {
+			back=(back+1)%capacity;
+			theQueue[back]=value;			
+			theSize++;
+		}
+		
+		else {
 			capacity=capacity*2;
 			int* tempArray = new int[capacity];
 			for (int i=0; i<theSize; ++i) {
-				//can't call dequeue within enqueue?
-				//theQueue->dequeue();
+				//int temp=this->dequeue();
 				int temp = theQueue[front];
-				front=(front+1)%capacity;
-				//front=front+1;
-				theSize--;
 				tempArray[i] = temp;
+				front=front+1;
 			}
 			theQueue=tempArray;
 			delete[] tempArray;
+			theSize++;
 		}
-		 //theSize=capacity/2;
+		 
 
-		back=(back+1)%capacity;
-		theQueue[back]=value;
-		
-		theSize++;
+
 	}
 }
 
