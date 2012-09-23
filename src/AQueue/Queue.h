@@ -18,6 +18,7 @@ class Queue {
   int dequeue();
   int isEmpty();
   int size();
+  int getCapacity();
 
 };
 
