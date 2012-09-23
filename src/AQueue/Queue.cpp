@@ -18,7 +18,6 @@ int Queue::dequeue() {
 	assert(theSize>0);
 	int temp = theQueue[front];
 	front=(front+1)%capacity;
-	//front=front+1;
 	theSize--;
 	return temp;
 }
@@ -46,9 +45,13 @@ void Queue::enqueue(int value) {
 				tempArray[i] = temp;
 				front=front+1;
 			}
+			//the order of these next two lines is CRUCIAL!  had em swapped before
+			delete[] theQueue;
 			theQueue=tempArray;
-			delete[] tempArray;
+			back=(back+1)%capacity;
+			theQueue[back]=value;
 			theSize++;
+			front=0;
 		}
 		 
 
