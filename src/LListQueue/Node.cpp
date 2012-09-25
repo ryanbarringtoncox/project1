@@ -2,8 +2,8 @@
 #include <iostream>
 
 Node::Node(int val) {
-  //does this work?
   value = val;
+  next=0;
 }
 
 Node::~Node() {
