@@ -18,18 +18,21 @@ int Queue::dequeue() {
 	int temp = theQueue[front];
 	front=(front+1)%capacity;
 	theSize--;	
-	//if theSize is less than half capacity, reduce Queue by half
-	/*if (theSize<capacity/2) {
+	//if theSize is less than half capacity, reduce Queue by half.  Don't go below size of 2!
+	if (theSize<capacity/2 && theSize > 2) {
+		int prevCapacity=capacity;
 		capacity=capacity/2;
-		int* temp = new int[capacity];
+		int* tempArray = new int[capacity];
 		for (int i=0; i<theSize; ++i) {
-			temp[i]=theQueue[front];
-			front++;
+			int temp = theQueue[front];
+			tempArray[i] = temp;
+			front=(front+1)%prevCapacity;
 		}
-		front=0;
 		delete[] theQueue;
-		theQueue = temp;
-	}	*/
+		theQueue = tempArray;
+		back=theSize;
+		front=0;
+	}
 	return temp;
 }
 
