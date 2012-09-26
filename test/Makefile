@@ -1,3 +1,6 @@
+AQSRC = ../src/AQueue
+LLSRC = ../src/LListQueue
+LQSRC = ../src/ListQueue
 BUILD = ../build
 TEST = ../test
 LIB = ../lib
@@ -10,13 +13,13 @@ GTEST_INCLUDES = -I$(GTEST) -I$(GTEST)/include
 CPP = g++
 CPPFLAGS = -Wall -Wextra
 
-queue_test: Queue.cpp $(SRC)/Queue.o $(GTEST_MAINA)
-	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o queue_test Queue.cpp $(SRC)/Queue.o $(GTEST_MAINA)
+queue_test: Queue.cpp $(AQSRC)/Queue.o $(GTEST_MAINA)
+	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o queue_test Queue.cpp $(AQSRC)/Queue.o $(GTEST_MAINA)
 
 $(GTEST_MAINA): $(GTEST)/src/*.cc $(GTEST)/src/*.h
 	cd $(GTEST)/make; make
 
 clean:
-	rm -f stack_test
+	rm -f queue_test
 	rm -f $(GTEST_MAINA)
 	cd $(GTEST)/make; $(MAKE) clean
