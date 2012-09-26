@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../src/Queue.h"
+#include "../src/ListQueue/Queue.h"
 
 TEST(QueueTest, SimpleQueueTest) {
   Queue* q = new Queue();
