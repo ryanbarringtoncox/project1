@@ -11,7 +11,7 @@ class Queue {
 
  public:
   Queue();
-  //~Queue(); //destructor
+  ~Queue(); //destructor
   void enqueue(int value);
   int dequeue();
   int isEmpty();

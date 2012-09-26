@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../include/declarations"
+#include "../src/LListQueue/Node.h"
 
 TEST(QueueTest, SimpleQueueTest) {
   Queue* q = new Queue();

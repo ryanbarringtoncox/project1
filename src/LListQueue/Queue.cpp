@@ -26,6 +26,10 @@ void Queue::enqueue(int value) {
   }
 }
 
+Queue::~Queue() {
+	//need to delete all nodes, then pointer too?
+}
+
 int Queue::dequeue() {
 	assert(theSize>0);
 	Node* temp = front;

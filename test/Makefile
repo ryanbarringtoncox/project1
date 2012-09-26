@@ -12,14 +12,14 @@ GTEST_INCLUDES = -I$(GTEST) -I$(GTEST)/include
 CPP = g++
 CPPFLAGS = -Wall -Wextra
 
-all: list_queue_test ll_queue_test a_queue_test
+all: list_queue_test a_queue_test ll_queue_test 
 
 list_queue_test: Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
 	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o list_queue_test Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
 
 
-ll_queue_test: Queue.cpp $(LLQSRC)/Queue.o $(GTEST_MAINA)
-	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o ll_queue_test Queue.cpp $(LLQSRC)/Queue.o $(GTEST_MAINA)
+ll_queue_test: Queue.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o $(GTEST_MAINA)
+	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o ll_queue_test Queue.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o $(GTEST_MAINA)
 
 
 a_queue_test: Queue.cpp $(AQSRC)/Queue.o $(GTEST_MAINA)
@@ -33,5 +33,6 @@ clean:
 	rm -f queue_test
 	rm -f list_queue_test
 	rm -f ll_queue_test
+	rm -f a_queue_test
 	rm -f $(GTEST_MAINA)
 	cd $(GTEST)/make; $(MAKE) clean
