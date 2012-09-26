@@ -13,8 +13,8 @@ GTEST_INCLUDES = -I$(GTEST) -I$(GTEST)/include
 CPP = g++
 CPPFLAGS = -Wall -Wextra
 
-queue_test: Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
-	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o queue_test Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
+list_queue_test: Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
+	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o list_queue_test Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
 
 $(GTEST_MAINA): $(GTEST)/src/*.cc $(GTEST)/src/*.h
 	cd $(GTEST)/make; make
