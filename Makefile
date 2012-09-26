@@ -1,7 +1,9 @@
+AQSRC = ./src/AQueue
+LLSRC = ./src/LListQueue
+LQSRC = ./src/ListQueue
 BUILD = ./build
 TEST = ./test
 LIB = ./lib
-SRC = ./src
 
 CPP = g++
 CPPFLAGS = -Wall -Wextra
@@ -15,6 +17,8 @@ all: $(BUILD)/main $(TEST)/queue_test
 #	cd $(TEST); $(MAKE)
 
 clean:
-	#cd $(SRC); $(MAKE) clean
+	cd $(LQSRC); $(MAKE) clean
+	cd $(AQSRC); $(MAKE) clean
+	cd $(LLSRC); $(MAKE) clean
 	cd $(TEST); $(MAKE) clean
 

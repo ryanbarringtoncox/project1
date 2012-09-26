@@ -13,3 +13,5 @@ Queue.o: Queue.h Queue.cpp Node.o
 
 clean:
 	rm -f test
+	rm *.o
+
