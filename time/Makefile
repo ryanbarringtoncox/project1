@@ -16,16 +16,12 @@ list_queue_test: Time.cpp $(LQSRC)/Queue.o
 	$(CPP) $(CFLAGS) -o list_queue_test Time.cpp $(LQSRC)/Queue.o
 
 
-ll_queue_test: Queue.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o $(GTEST_MAINA)
-	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o ll_queue_test Queue.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o $(GTEST_MAINA)
+ll_queue_test: Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
+	$(CPP) $(CFLAGS) -o ll_queue_test Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
 
 
-a_queue_test: Queue.cpp $(AQSRC)/Queue.o $(GTEST_MAINA)
-	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o a_queue_test Queue.cpp $(AQSRC)/Queue.o $(GTEST_MAINA)
-
-
-$(GTEST_MAINA): $(GTEST)/src/*.cc $(GTEST)/src/*.h
-	cd $(GTEST)/make; make
+a_queue_test: Time.cpp $(AQSRC)/Queue.o
+	$(CPP) $(CFLAGS) -o a_queue_test Time.cpp $(AQSRC)/Queue.o $(GTEST_MAINA)
 
 clean:
 	rm -f list_queue_test
