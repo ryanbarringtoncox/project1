@@ -20,9 +20,6 @@ $(AQSRC)/Queue.o: $(AQSRC)/Queue.h $(AQSRC)/Queue.cpp
 $(LLQSRC)/Queue.o: $(LLQSRC)/Queue.h $(LLQSRC)/Queue.cpp
 	cd $(LLQSRC); $(MAKE)
 
-$(LLQSRC)/Node.o: $(LLQSRC)/Node.h ($LLQSRC)/Node.cpp
-	cd $(LLQSRC); $(MAKE)
-	
 $(BUILD)/li_q_time: $(TIMESRC)/Time.cpp $(LQSRC)/Queue.o
 	$(CPP) $(CFLAGS) -o $(BUILD)/li_q_time $(TIMESRC)/Time.cpp $(LQSRC)/Queue.o
 
