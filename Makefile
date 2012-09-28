@@ -9,7 +9,7 @@ LIB = ./lib
 CPP = g++
 CPPFLAGS = -Wall -Wextra
 
-all: $(LQSRC)/Queue.o $(AQSRC)/Queue.o $(LLQSRC)/Queue.o $(LLQSRC)/Node.o 
+all: $(LQSRC)/Queue.o $(AQSRC)/Queue.o $(LLQSRC)/Queue.o $(LLQSRC)/Node.o $(BUILD)/li_q_time $(BUILD)/a_q_time $(BUILD)/ll_q_time
 
 $(LQSRC)/Queue.o: $(LQSRC)/Queue.h $(LQSRC)/Queue.cpp
 	cd $(LQSRC); $(MAKE)
@@ -20,8 +20,17 @@ $(AQSRC)/Queue.o: $(AQSRC)/Queue.h $(AQSRC)/Queue.cpp
 $(LLQSRC)/Queue.o: $(LLQSRC)/Queue.h $(LLQSRC)/Queue.cpp
 	cd $(LLQSRC); $(MAKE)
 
-$(TIMESRC)/Node.o: $(LLQSRC)/Node.h ($LLQSRC)/Node.cpp
+$(LLQSRC)/Node.o: $(LLQSRC)/Node.h ($LLQSRC)/Node.cpp
 	cd $(LLQSRC); $(MAKE)
+	
+$(BUILD)/li_q_time: $(TIMESRC)/Time.cpp $(LQSRC)/Queue.o
+	$(CPP) $(CFLAGS) -o $(BUILD)/li_q_time $(TIMESRC)/Time.cpp $(LQSRC)/Queue.o
+
+$(BUILD)/ll_q_time: $(TIMESRC)/Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
+	$(CPP) $(CFLAGS) -o $(BUILD)/ll_q_time $(TIMESRC)/Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
+
+$(BUILD)/a_q_time: $(TIMESRC)/Time.cpp $(AQSRC)/Queue.o
+	$(CPP) $(CFLAGS) -o $(BUILD)/a_q_time $(TIMESRC)/Time.cpp $(AQSRC)/Queue.o 	
 
 clean:
 	cd $(LQSRC); $(MAKE) clean
