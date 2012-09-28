@@ -6,20 +6,20 @@ BUILD = ../../build
 CPP = g++
 CPPFLAGS = -Wall -Wextra
 
-all: $(BUILD)/list_q_time a_queue_test ll_queue_test 
+all: $(BUILD)/li_q_time $(BUILD)/a_q_time $(BUILD)/ll_q_time 
 
-$(BUILD)/list_q_time: Time.cpp $(LQSRC)/Queue.o
-	$(CPP) $(CFLAGS) -o $(BUILD)/list_q_time Time.cpp $(LQSRC)/Queue.o
-
-
-ll_queue_test: Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
-	$(CPP) $(CFLAGS) -o ll_queue_test Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
+$(BUILD)/li_q_time: Time.cpp $(LQSRC)/Queue.o
+	$(CPP) $(CFLAGS) -o $(BUILD)/li_q_time Time.cpp $(LQSRC)/Queue.o
 
 
-a_queue_test: Time.cpp $(AQSRC)/Queue.o
-	$(CPP) $(CFLAGS) -o a_queue_test Time.cpp $(AQSRC)/Queue.o 
+$(BUILD)/ll_q_time: Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
+	$(CPP) $(CFLAGS) -o $(BUILD)/ll_q_time Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
+
+
+$(BUILD)/a_q_time: Time.cpp $(AQSRC)/Queue.o
+	$(CPP) $(CFLAGS) -o $(BUILD)/a_q_time Time.cpp $(AQSRC)/Queue.o 
 
 clean:
-	rm -f list_queue_test
-	rm -f ll_queue_test
-	rm -f a_queue_test
+	rm -f $(BUILD)/a_q_time 
+	rm -f $(BUILD)/li_q_time
+	rm -f $(BUILD)/ll_q_time

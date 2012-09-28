@@ -10,11 +10,8 @@ int main() {
 
   Queue* q = new Queue();
 
-  for (int i=0; i<99999; i++) {
+  for (int i=0; i<9999999; i++) {
     q->enqueue(i);
-  }                                                                                                                                                                         
-  while (!(q->isEmpty())) {
-    q->dequeue();
   }                                                                                                                                                                         
   delete q;
 

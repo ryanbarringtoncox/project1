@@ -3,7 +3,7 @@
 #include <vector>
 
 Queue::Queue() {
-  //um, need there be something here?
+  //theQueue = new std::list<int>();
 }
 
 Queue::~Queue() {
