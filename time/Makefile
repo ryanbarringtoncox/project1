@@ -21,7 +21,7 @@ ll_queue_test: Time.cpp $(LLQSRC)/Queue.o $(LLQSRC)/Node.o
 
 
 a_queue_test: Time.cpp $(AQSRC)/Queue.o
-	$(CPP) $(CFLAGS) -o a_queue_test Time.cpp $(AQSRC)/Queue.o $(GTEST_MAINA)
+	$(CPP) $(CFLAGS) -o a_queue_test Time.cpp $(AQSRC)/Queue.o 
 
 clean:
 	rm -f list_queue_test

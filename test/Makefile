@@ -12,7 +12,7 @@ GTEST_INCLUDES = -I$(GTEST) -I$(GTEST)/include
 CPP = g++
 CPPFLAGS = -Wall -Wextra
 
-all: list_queue_test a_queue_test ll_queue_test 
+all: list_queue_test a_queue_test ll_queue_test $(GTEST_MAINA) 
 
 list_queue_test: Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
 	$(CPP) $(CFLAGS) $(GTEST_INCLUDES) -pthread -o list_queue_test Queue.cpp $(LQSRC)/Queue.o $(GTEST_MAINA)
