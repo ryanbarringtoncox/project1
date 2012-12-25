@@ -40,8 +40,8 @@ void Queue::enqueue(int value) {
 		int* tempArray = new int[capacity * 2];
 		int* oldArray = theQueue;
 		for (int i=0; i<theSize; ++i) {
-				tempArray[i] = theQueue[front%capacity];
-				front++;
+			tempArray[i] = theQueue[front%capacity];
+			front++;
 		}		
 		theQueue = tempArray;
 		delete[] oldArray;
