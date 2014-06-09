@@ -7,3 +7,5 @@ Compares queues built with c++ linked list, list and queue.  Build the timing te
     ./build/ll_q_time
     ./build/li_q_time 
     ./build/a_q_time 
+
+*Pesky Bug: the a_q_time test throws a segmentation fault.* 
